@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import GlobalStyle from './Globalstyle';
+import Header from './common/Header';
+import PopularMovies from './features/PopularMovies';
+import PopularPeople from './features/PopularPeople';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+
+        <Switch>
+          <Route path="/movie">
+            <PopularMovies />
+          </Route>
+          <Route path="/people">
+            <PopularPeople />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 }
 
