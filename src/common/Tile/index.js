@@ -5,6 +5,9 @@ export const Tile = styled.div`
     border-radius: 5px;
     background: #FFFFFF;
     padding: 16px;
+    display: grid;
+    grid-template-rows: repeat(4, auto) 24px;
+
 
     ${(props) => props.image && css`
         width: 324px;

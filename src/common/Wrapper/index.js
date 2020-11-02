@@ -10,4 +10,11 @@ export const Wrapper = styled.div`
         grid-template-columns: repeat(4, 324px);
         grid-gap: 24px;
     `}
+
+    ${(props) => props.genresList && css`
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        background: transparent;
+    `}
 `;
