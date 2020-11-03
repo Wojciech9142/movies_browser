@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, PageNumber, PaginationWrapper } from './styled';
 
-const Pagination = (props) => {
-    return(
+const Pagination = ({ page, totalPages, setCurrentPage }) => {
+    return (
         <PaginationWrapper>
-            <Button>&lt; First</Button>
-            <Button>&lt; Previous</Button>
-                <PageNumber>Page {props.page} of {props.totalPage}</PageNumber>
-            <Button>Next &gt;</Button>
-            <Button>Last &gt;</Button>
+            <Button disabled={page === 1} onClick={() => setCurrentPage(1)}>&lt; First</Button>
+            <Button disabled={page === 1} onClick={() => setCurrentPage(currentPage => currentPage - 1)}>&lt; Previous</Button>
+            <PageNumber>Page {page} of {totalPages}</PageNumber>
+            <Button disabled={page === totalPages} onClick={() => setCurrentPage(currentPage => currentPage + 1)}>Next &gt;</Button>
+            <Button disabled={page === totalPages} onClick={() => setCurrentPage(totalPages)}>Last &gt;</Button>
         </PaginationWrapper>
     )
 }

@@ -17,4 +17,11 @@ export const Wrapper = styled.div`
         flex-wrap: wrap;
         background: transparent;
     `}
+
+    ${(props) => props.personsList && css`
+        display: grid;
+        grid-template-columns: repeat(6, 208px);
+        padding : 0;
+        grid-gap: 24px;
+    `}
 `;

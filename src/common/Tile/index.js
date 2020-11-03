@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Tile = styled.div`
     box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
@@ -7,10 +7,4 @@ export const Tile = styled.div`
     padding: 16px;
     display: grid;
     grid-template-rows: repeat(4, auto) 24px;
-
-
-    ${(props) => props.image && css`
-        width: 324px;
-        height: 650px;
-    `}
 `;

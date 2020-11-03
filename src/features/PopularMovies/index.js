@@ -13,7 +13,8 @@ const PopularMovies = () => {
     const [genres, setGenres] = useState({
         state: "loading",
         genres: [],
-    })
+    });
+    const [currentPage, setCurrentPage] = useState(1);
 
     const API_KEY = "9fa8df50ae92cd1be9d2b9ae814b33c6";
     const IMAGE_LINK = "https://image.tmdb.org/t/p/w500";
@@ -21,17 +22,17 @@ const PopularMovies = () => {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+                const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${currentPage}`)
                 setMovies({
                     state: "success",
                     movies: response.data,
                 });
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         })();
 
-    }, []);
+    }, [currentPage]);
 
     useEffect(() => {
         (async () => {
@@ -48,12 +49,9 @@ const PopularMovies = () => {
 
     }, []);
 
-    console.log(movies);
-    console.log(genres.genres.genres);
-
     return (
         <Wrapper>
-            <SectionHeader>Popular People</SectionHeader>
+            <SectionHeader>Popular Movies</SectionHeader>
             <Wrapper itemList>
                 {movies.state === "success" && genres.state === "success" ?
                     movies.movies.results.map((item) =>
@@ -89,12 +87,10 @@ const PopularMovies = () => {
                     ) :
                     <p>Ładowanie danych</p>
                 }
-
-
-                <Pagination page={movies.movies.page} totalPage={movies.movies.total_pages}>
-
-                </Pagination>
             </Wrapper>
+            <Pagination setCurrentPage={setCurrentPage} currentPage={currentPage} page={movies.movies.page} totalPages={movies.movies.total_pages}>
+
+            </Pagination>
         </Wrapper>
     );
 }
