@@ -30,8 +30,6 @@ const PopularPeople = () => {
 
     }, [currentPage]);
 
-    console.log(people);
-
     return (
         <Wrapper>
             <SectionHeader>Popular People</SectionHeader>
