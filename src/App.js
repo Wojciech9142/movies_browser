@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyle from './Globalstyle';
 import Header from './common/Header';
 import PopularMovies from './features/PopularMovies';
+import MoviePage from './features/MoviePage';
 import PopularPeople from './features/PopularPeople';
 
 
@@ -14,6 +15,9 @@ function App() {
         <Header />
 
         <Switch>
+          <Route path="/movie/:id">
+            <MoviePage />
+          </Route>
           <Route path="/movie">
             <PopularMovies />
           </Route>

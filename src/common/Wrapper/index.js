@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
         display: grid;
         grid-template-columns: repeat(4, 324px);
         grid-gap: 24px;
+        grid-auto-rows: minmax(300px, auto);
     `}
 
     ${(props) => props.genresList && css`
@@ -19,9 +20,14 @@ export const Wrapper = styled.div`
     `}
 
     ${(props) => props.personsList && css`
+        padding: 0;
         display: grid;
         grid-template-columns: repeat(6, 208px);
-        padding : 0;
         grid-gap: 24px;
+    `}
+
+    ${(props) => props.moviePage && css`
+        padding: 0;
+        margin: 0;
     `}
 `;

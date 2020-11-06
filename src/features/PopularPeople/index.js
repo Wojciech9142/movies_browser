@@ -4,6 +4,7 @@ import { Image, SectionHeader, Title } from './styled';
 import { Wrapper } from '../../common/Wrapper';
 import { Tile } from '../../common/Tile';
 import axios from 'axios';
+import userImage from '../../images/Picture.png';
 
 const PopularPeople = () => {
     const [people, setPeople] = useState({
@@ -39,17 +40,12 @@ const PopularPeople = () => {
                         <Tile
                             key={item.id}
                         >
-                            <Image src={`${IMAGE_LINK}${item.profile_path}`} alt="" />
+                            <Image src={item.profile_path !== null ? `${IMAGE_LINK}${item.profile_path}` : userImage} alt={`Zdjęcie ${item.name}`} />
                             <Title>{item.name}</Title>
-
-
                         </Tile>
                     ) :
                     <p>Ładowanie danych</p>
                 }
-
-
-
             </Wrapper>
             <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} page={people.people.page} totalPages={people.people.total_pages}>
 

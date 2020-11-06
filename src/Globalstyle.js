@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: inherit;
         font-family: "Poppins"
     }
+    body{
+        background: #E5E5E5;
+    }
 `
 
 export default GlobalStyle;
