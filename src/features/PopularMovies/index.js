@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Pagination from '../../common/Pagination';
 import { Tile } from '../../common/Tile';
 import { Wrapper } from '../../common/Wrapper';
-import { GenreElement, Image, Rates, SectionHeader, Title, Year, RatesAverange, RatesCount } from './styled';
+import { GenreElement, Image, Rates, SectionHeader, Title, Year, RatesAverange, RatesCount, StyledLink } from './styled';
 
 const PopularMovies = () => {
     const [movies, setMovies] = useState({
@@ -56,7 +55,7 @@ const PopularMovies = () => {
             <Wrapper itemList>
                 {movies.state === "success" && genres.state === "success" ?
                     movies.movies.results.map((item) =>
-                        <Link key={item.id} to={`/movie/${item.id}`}>
+                        <StyledLink key={item.id} to={`/movie/${item.id}`}>
                             <Tile>
                                 <Image src={`${IMAGE_LINK}${item.poster_path}`} alt="" />
                                 <Title>{item.title}</Title>
@@ -84,7 +83,7 @@ const PopularMovies = () => {
                                 </Rates>
 
                             </Tile>
-                        </Link>
+                        </StyledLink>
                     ) :
                     <p>Ładowanie danych</p>
                 }

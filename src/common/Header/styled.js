@@ -64,12 +64,15 @@ const activeClassName = "active";
 export const StyledNavLink = styled(NavLink).attrs(() => ({
     activeClassName,
 }))`
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    border-radius: 24px;
+    text-decoration: none;
+    padding: 13.5px 24px;
+    color: white;
+    
+
     &.${activeClassName}{
         border: 1px solid #FFFFFF;
-        box-sizing: border-box;
-        border-radius: 24px;
-        text-decoration: none;
-        padding: 13.5px 24px;
-        color: white;
     }
 `;

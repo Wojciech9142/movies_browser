@@ -5,6 +5,7 @@ import Header from './common/Header';
 import PopularMovies from './features/PopularMovies';
 import MoviePage from './features/MoviePage';
 import PopularPeople from './features/PopularPeople';
+import ProfilePage from './features/ProfilePage';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
         <Switch>
           <Route path="/movie/:id">
             <MoviePage />
+          </Route>
+          <Route path="/people/:id">
+            <ProfilePage />
           </Route>
           <Route path="/movie">
             <PopularMovies />

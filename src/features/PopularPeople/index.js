@@ -5,6 +5,7 @@ import { Wrapper } from '../../common/Wrapper';
 import { Tile } from '../../common/Tile';
 import axios from 'axios';
 import userImage from '../../images/Picture.png';
+import { Link } from 'react-router-dom';
 
 const PopularPeople = () => {
     const [people, setPeople] = useState({
@@ -24,6 +25,7 @@ const PopularPeople = () => {
                     state: "success",
                     people: response.data,
                 });
+                console.log(people)
             } catch (error) {
                 console.log(error);
             }
@@ -37,12 +39,15 @@ const PopularPeople = () => {
             <Wrapper personsList>
                 {people.state === "success" ?
                     people.people.results.map((item) =>
-                        <Tile
+                        <Link
+                            to={`/people/${item.id}`}
                             key={item.id}
                         >
-                            <Image src={item.profile_path !== null ? `${IMAGE_LINK}${item.profile_path}` : userImage} alt={`Zdjęcie ${item.name}`} />
-                            <Title>{item.name}</Title>
-                        </Tile>
+                            <Tile>
+                                <Image src={item.profile_path !== null ? `${IMAGE_LINK}${item.profile_path}` : userImage} alt={`Zdjęcie ${item.name}`} />
+                                <Title>{item.name}</Title>
+                            </Tile>
+                        </Link>
                     ) :
                     <p>Ładowanie danych</p>
                 }

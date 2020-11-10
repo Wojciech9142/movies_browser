@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SectionHeader = styled.h2`
@@ -25,6 +26,7 @@ export const Year = styled.h4`
     line-height: 24px;
     font-weight: 400;
     margin: 8px 0;
+    color: #7E839A;
 `;
 
 export const GenreElement = styled.p`
@@ -59,3 +61,8 @@ export const RatesCount = styled.span`
     color: #7E839A;
     margin: 0 12px;
 `;
+
+export const StyledLink = styled(Link)`
+    text-decoration :none;
+    color: black;
+`
